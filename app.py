@@ -44,7 +44,7 @@ def predict():
 
         # Columnas completas para el scaler (sin price porque no se escala)
         expected_columns = [
-            'carat', 'cut', 'color', 'clarity', 'depth', 'table', 'x', 'y', 'z'
+            'carat', 'color', 'clarity', 'x', 'y', 
         ]
         
         # Características que usamos para la predicción
@@ -53,14 +53,14 @@ def predict():
         # Crear diccionario con todos los datos (completar con valores promedio los que no tenemos)
         data_dict = {
             'carat': carat,
-            'cut': 3.0,           # Valor promedio para cut (1-5 scale)
+                     # Valor promedio para cut (1-5 scale)
             'color': color,
             'clarity': clarity,
-            'depth': 61.5,        # Valor promedio típico para depth
-            'table': 57.0,        # Valor promedio típico para table
+                    # Valor promedio típico para depth
+                    # Valor promedio típico para table
             'x': x,
             'y': y,
-            'z': 0.0              # Completar con 0 ya que no lo tenemos
+                       # Completar con 0 ya que no lo tenemos
         }
 
         # Crear DataFrame con todas las columnas esperadas por el scaler
