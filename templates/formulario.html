@@ -12,11 +12,11 @@
       theme: {
         extend: {
           colors: {
-            'primary': '#1f2937',
-            'secondary': '#374151',
-            'accent': '#1e40af',
-            'surface': '#f9fafb',
-            'border': '#d1d5db'
+            'primary': '#000000',
+            'secondary': '#1e40af',
+            'accent': '#3b82f6',
+            'surface': '#f8fafc',
+            'border': '#e5e7eb'
           },
           fontFamily: {
             'sans': ['Inter', 'system-ui', 'sans-serif']
@@ -56,18 +56,21 @@
     }
 
     @keyframes pulseBlue {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 1;
       }
+
       50% {
         opacity: 0.7;
       }
     }
 
     .glass-effect {
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(31, 41, 55, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .input-focus {
@@ -76,16 +79,11 @@
 
     .input-focus:focus {
       transform: translateY(-1px);
-      box-shadow: 0 10px 25px -5px rgba(30, 64, 175, 0.15), 0 4px 6px -2px rgba(31, 41, 55, 0.1);
+      box-shadow: 0 10px 25px -5px rgba(30, 64, 175, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
     }
 
-    .formal-gradient {
-      background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1e40af 100%);
-    }
-
-    .formal-border {
-      border: 2px solid #e5e7eb;
-      background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    .elegant-gradient {
+      background: linear-gradient(135deg, #000000 0%, #1e40af 50%, #3b82f6 100%);
     }
   </style>
   <script>
@@ -149,17 +147,17 @@
     function showError(message) {
       const resultado = document.getElementById('resultado');
       resultado.innerHTML = `
-        <div class="animate-slide-up bg-white formal-border rounded-lg p-6 shadow-lg">
+        <div class="animate-slide-up bg-white border-2 border-red-200 rounded-2xl p-6 shadow-lg">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center border border-red-200">
+              <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
                 <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
                 </svg>
               </div>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-gray-900">Error de Validación</h3>
+              <h3 class="text-lg font-semibold text-black">Error de Validación</h3>
               <p class="text-gray-700 mt-1">${message}</p>
             </div>
           </div>
@@ -175,19 +173,19 @@
       }).format(precio);
 
       resultado.innerHTML = `
-        <div class="animate-slide-up bg-white formal-border rounded-lg p-8 shadow-xl">
+        <div class="animate-slide-up bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl">
           <div class="text-center">
-            <div class="w-20 h-20 formal-gradient rounded-lg flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div class="w-20 h-20 elegant-gradient rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Valoración Completada</h3>
-            <div class="formal-gradient text-white rounded-lg p-6 mb-4 shadow-lg">
+            <h3 class="text-2xl font-bold text-black mb-4">Valoración Completada</h3>
+            <div class="elegant-gradient text-white rounded-2xl p-6 mb-4">
               <p class="text-lg font-medium mb-2">Precio Estimado del Diamante</p>
               <p class="text-4xl font-bold">${precioFormateado}</p>
             </div>
-            <p class="text-gray-600 text-sm font-medium">Predicción generada por IA especializada en gemología</p>
+            <p class="text-gray-700 text-sm">Predicción generada por IA especializada en gemología</p>
           </div>
         </div>
       `;
@@ -221,42 +219,42 @@
   </script>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
+<body class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-white font-sans">
 
   <div class="container mx-auto px-4 py-8">
     <!-- Header Section -->
     <div class="text-center mb-12 animate-fade-in" style="opacity: 0; transform: translateY(30px);">
-      <div class="inline-flex items-center justify-center w-24 h-24 formal-gradient rounded-lg mb-6 shadow-xl border border-gray-200">
+      <div class="inline-flex items-center justify-center w-24 h-24 elegant-gradient rounded-2xl mb-6 shadow-xl">
         <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
         </svg>
       </div>
-      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+      <h1 class="text-5xl md:text-6xl font-bold text-black mb-4 leading-tight">
         Predictor de Precios
         <span class="block text-blue-700">de Diamantes</span>
       </h1>
-      <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
+      <p class="text-xl text-gray-800 max-w-2xl mx-auto leading-relaxed">
         Tecnología de inteligencia artificial avanzada para la valoración precisa de diamantes basada en características
-        gemológicas profesionales
+        gemológicas
       </p>
-      <div class="flex items-center justify-center mt-6 space-x-2 text-sm text-gray-600">
-        <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse-blue"></div>
-        <span class="font-medium">Sistema de IA Activo</span>
+      <div class="flex items-center justify-center mt-6 space-x-2 text-sm text-blue-600">
+        <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse-blue"></div>
+        <span>Sistema de IA Activo</span>
       </div>
     </div>
 
     <!-- Main Form Card -->
     <div class="max-w-4xl mx-auto animate-fade-in" style="opacity: 0; transform: translateY(30px);">
-      <div class="bg-white rounded-lg shadow-2xl border-2 border-gray-200 overflow-hidden">
+      <div class="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
         <!-- Card Header -->
-        <div class="formal-gradient px-8 py-6 border-b border-gray-200">
+        <div class="elegant-gradient px-8 py-6">
           <div class="flex items-center justify-between">
             <div>
               <h2 class="text-2xl font-bold text-white mb-2">Características del Diamante</h2>
-              <p class="text-gray-200 font-medium">Ingrese las especificaciones gemológicas del diamante</p>
+              <p class="text-blue-100">Ingrese las especificaciones gemológicas del diamante</p>
             </div>
             <div class="hidden md:block">
-              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center border border-white/30">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
                 </svg>
@@ -266,13 +264,13 @@
         </div>
 
         <!-- Form Content -->
-        <form id="formulario" onsubmit="predecirPrecioDiamante(event)" class="p-8 bg-gray-50">
+        <form id="formulario" onsubmit="predecirPrecioDiamante(event)" class="p-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
             <!-- Carat Input -->
             <div class="space-y-3">
-              <label for="carat" class="block text-sm font-bold text-gray-900 flex items-center">
-                <div class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+              <label for="carat" class="block text-sm font-semibold text-black flex items-center">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
@@ -281,15 +279,15 @@
                 Quilates (Carat)
               </label>
               <input type="number" id="carat" name="carat" step="0.01" min="0.1" max="10" placeholder="Ejemplo: 1.25"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-300 text-gray-900 placeholder-gray-500 input-focus bg-white"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-black transition-all duration-300 text-black placeholder-gray-500 input-focus"
                 required>
-              <p class="text-xs text-gray-600 ml-2 font-medium">Peso del diamante en quilates</p>
+              <p class="text-xs text-blue-600 ml-2">Peso del diamante en quilates</p>
             </div>
 
             <!-- X Dimension Input -->
             <div class="space-y-3">
-              <label for="x" class="block text-sm font-bold text-gray-900 flex items-center">
-                <div class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+              <label for="x" class="block text-sm font-semibold text-black flex items-center">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z" />
                   </svg>
@@ -297,15 +295,15 @@
                 Dimensión X (mm)
               </label>
               <input type="number" id="x" name="x" step="0.01" min="0" max="20" placeholder="Ejemplo: 6.43"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-300 text-gray-900 placeholder-gray-500 input-focus bg-white"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-black transition-all duration-300 text-black placeholder-gray-500 input-focus"
                 required>
-              <p class="text-xs text-gray-600 ml-2 font-medium">Longitud del diamante en milímetros</p>
+              <p class="text-xs text-blue-600 ml-2">Longitud del diamante en milímetros</p>
             </div>
 
             <!-- Y Dimension Input -->
             <div class="space-y-3">
-              <label for="y" class="block text-sm font-bold text-gray-900 flex items-center">
-                <div class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+              <label for="y" class="block text-sm font-semibold text-black flex items-center">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z" />
                   </svg>
@@ -313,15 +311,15 @@
                 Dimensión Y (mm)
               </label>
               <input type="number" id="y" name="y" step="0.01" min="0" max="20" placeholder="Ejemplo: 6.41"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-300 text-gray-900 placeholder-gray-500 input-focus bg-white"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-black transition-all duration-300 text-black placeholder-gray-500 input-focus"
                 required>
-              <p class="text-xs text-gray-600 ml-2 font-medium">Ancho del diamante en milímetros</p>
+              <p class="text-xs text-blue-600 ml-2">Ancho del diamante en milímetros</p>
             </div>
 
             <!-- Clarity Input -->
             <div class="space-y-3">
-              <label for="clarity" class="block text-sm font-bold text-gray-900 flex items-center">
-                <div class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+              <label for="clarity" class="block text-sm font-semibold text-black flex items-center">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z" />
@@ -330,7 +328,7 @@
                 Claridad (Clarity)
               </label>
               <select id="clarity" name="clarity"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-300 text-gray-900 input-focus bg-white"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-black transition-all duration-300 text-black input-focus"
                 required>
                 <option value="">Seleccionar claridad</option>
                 <option value="I1">I1 (Included 1)</option>
@@ -342,13 +340,13 @@
                 <option value="VVS1">VVS1 (Very Very Slightly Included 1)</option>
                 <option value="IF">IF (Internally Flawless)</option>
               </select>
-              <p class="text-xs text-gray-600 ml-2 font-medium">Grado de claridad del diamante</p>
+              <p class="text-xs text-blue-600 ml-2">Grado de claridad del diamante</p>
             </div>
 
             <!-- Color Input -->
             <div class="space-y-3">
-              <label for="color" class="block text-sm font-bold text-gray-900 flex items-center">
-                <div class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+              <label for="color" class="block text-sm font-semibold text-black flex items-center">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1H9V3H7V9H9V21A2,2 0 0,0 11,23H13A2,2 0 0,0 15,21V9H21Z" />
@@ -357,7 +355,7 @@
                 Color
               </label>
               <select id="color" name="color"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-300 text-gray-900 input-focus bg-white"
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-black transition-all duration-300 text-black input-focus"
                 required>
                 <option value="">Seleccionar color</option>
                 <option value="J">J (Near Colorless)</option>
@@ -368,14 +366,14 @@
                 <option value="E">E (Colorless)</option>
                 <option value="D">D (Colorless)</option>
               </select>
-              <p class="text-xs text-gray-600 ml-2 font-medium">Grado de color del diamante</p>
+              <p class="text-xs text-blue-600 ml-2">Grado de color del diamante</p>
             </div>
           </div>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t-2 border-gray-200">
+          <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
             <button type="submit" id="submitBtn"
-              class="flex-1 formal-gradient text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 flex items-center justify-center space-x-3 border border-gray-800">
+              class="flex-1 elegant-gradient text-white font-semibold py-3 px-6 rounded-xl hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 flex items-center justify-center space-x-3">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
               </svg>
@@ -383,7 +381,7 @@
             </button>
 
             <button type="button" onclick="clearForm()"
-              class="sm:w-auto bg-white hover:bg-gray-50 text-gray-800 font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-300 flex items-center justify-center space-x-3 border-2 border-gray-300">
+              class="sm:w-auto bg-gray-100 hover:bg-gray-200 text-black font-semibold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-300 flex items-center justify-center space-x-3 border border-gray-300">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
               </svg>
@@ -394,8 +392,8 @@
           <!-- Loading State -->
           <div id="loadingSpinner" class="hidden flex items-center justify-center py-6">
             <div class="flex items-center space-x-3">
-              <div class="animate-spin rounded-full h-8 w-8 border-2 border-gray-800 border-t-transparent"></div>
-              <div class="text-gray-800 font-bold">Analizando características del diamante...</div>
+              <div class="animate-spin rounded-full h-8 w-8 border-2 border-black border-t-transparent"></div>
+              <div class="text-black font-medium">Analizando características del diamante...</div>
             </div>
           </div>
         </form>
@@ -405,29 +403,30 @@
       <div id="resultado" class="mt-6"></div>
 
       <!-- Information Panel -->
-      <div class="mt-8 bg-white rounded-lg p-6 shadow-lg border-2 border-gray-200 animate-fade-in"
+      <div class="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-gray-200 animate-fade-in"
         style="opacity: 0; transform: translateY(30px);">
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0">
-            <div class="w-10 h-10 formal-gradient rounded-lg flex items-center justify-center border border-gray-300">
+            <div class="w-10 h-10 elegant-gradient rounded-xl flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,12 0 0,0 12,2M11,17H13V11H11V17Z" />
               </svg>
             </div>
           </div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Información Gemológica</h3>
+            <h3 class="text-xl font-bold text-black mb-3">Información Gemológica</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
               <div class="space-y-2">
-                <p><span class="font-bold text-gray-900">Quilates:</span> Peso del diamante (0.2g = 1 quilate)</p>
-                <p><span class="font-bold text-gray-900">Dimensiones:</span> Medidas físicas en milímetros</p>
-                <p><span class="font-bold text-gray-900">Claridad:</span> Presencia de inclusiones internas</p>
+                <p><span class="font-semibold text-black">Quilates:</span> Peso del diamante (0.2g = 1 quilate)</p>
+                <p><span class="font-semibold text-black">Dimensiones:</span> Medidas físicas en milímetros</p>
+                <p><span class="font-semibold text-black">Claridad:</span> Presencia de inclusiones internas</p>
               </div>
               <div class="space-y-2">
-                <p><span class="font-bold text-gray-900">Color:</span> Ausencia de color (D-Z scale)</p>
-                <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-gray-300">
-                  <p class="text-xs text-gray-700 font-medium">💎 Certificación gemológica recomendada para diamantes de alto valor</p>
+                <p><span class="font-semibold text-black">Color:</span> Ausencia de color (D-Z scale)</p>
+                <div class="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <p class="text-xs text-blue-700">💎 Certificación gemológica recomendada para diamantes de alto valor
+                  </p>
                 </div>
               </div>
             </div>
