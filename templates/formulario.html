@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,29 +32,56 @@
   </script>
   <style>
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes pulseBlue {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
     }
+
     .glass-effect {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(59, 130, 246, 0.1);
     }
+
     .input-focus {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .input-focus:focus {
       transform: translateY(-1px);
       box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
     }
+
     .diamond-gradient {
       background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
     }
@@ -61,18 +89,18 @@
   <script>
     function predecirPrecioDiamante(event) {
       event.preventDefault();
-      
+
       const submitBtn = document.getElementById('submitBtn');
       const resultado = document.getElementById('resultado');
       const loadingSpinner = document.getElementById('loadingSpinner');
       const form = document.getElementById('formulario');
-      
+
       // Animate form submission
       form.classList.add('opacity-50', 'pointer-events-none');
       submitBtn.disabled = true;
       loadingSpinner.classList.remove('hidden');
       resultado.innerHTML = '';
-      
+
       const carat = document.getElementById('carat').value;
       const x = document.getElementById('x').value;
       const y = document.getElementById('y').value;
@@ -99,21 +127,21 @@
         },
         body: `carat=${carat}&x=${x}&y=${y}&clarity=${clarity}&color=${color}`
       })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          showError('Error en el procesamiento: ' + data.error);
-        } else {
-          showSuccess(data.precio_diamante);
-        }
-      })
-      .catch(error => {
-        showError('Error de conexión. Verifique su conexión a internet e intente nuevamente.');
-        console.error('Error:', error);
-      })
-      .finally(() => {
-        resetForm();
-      });
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            showError('Error en el procesamiento: ' + data.error);
+          } else {
+            showSuccess(data.precio_diamante);
+          }
+        })
+        .catch(error => {
+          showError('Error de conexión. Verifique su conexión a internet e intente nuevamente.');
+          console.error('Error:', error);
+        })
+        .finally(() => {
+          resetForm();
+        });
     }
 
     function showError(message) {
@@ -143,7 +171,7 @@
         style: 'currency',
         currency: 'USD'
       }).format(precio);
-      
+
       resultado.innerHTML = `
         <div class="animate-slide-up bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl">
           <div class="text-center">
@@ -167,7 +195,7 @@
       const submitBtn = document.getElementById('submitBtn');
       const loadingSpinner = document.getElementById('loadingSpinner');
       const form = document.getElementById('formulario');
-      
+
       form.classList.remove('opacity-50', 'pointer-events-none');
       submitBtn.disabled = false;
       loadingSpinner.classList.add('hidden');
@@ -179,7 +207,7 @@
     }
 
     // Add animations on load
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const elements = document.querySelectorAll('.animate-fade-in');
       elements.forEach((el, index) => {
         setTimeout(() => {
@@ -190,14 +218,15 @@
     });
   </script>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-white font-sans">
-  
+
   <div class="container mx-auto px-4 py-8">
     <!-- Header Section -->
     <div class="text-center mb-12 animate-fade-in" style="opacity: 0; transform: translateY(30px);">
       <div class="inline-flex items-center justify-center w-24 h-24 diamond-gradient rounded-3xl mb-6 shadow-lg">
         <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z"/>
+          <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
         </svg>
       </div>
       <h1 class="text-5xl md:text-6xl font-bold text-blue-900 mb-4 leading-tight">
@@ -205,7 +234,8 @@
         <span class="block text-blue-600">de Diamantes</span>
       </h1>
       <p class="text-xl text-blue-700 max-w-2xl mx-auto leading-relaxed">
-        Tecnología de inteligencia artificial avanzada para la valoración precisa de diamantes basada en características gemológicas
+        Tecnología de inteligencia artificial avanzada para la valoración precisa de diamantes basada en características
+        gemológicas
       </p>
       <div class="flex items-center justify-center mt-6 space-x-2 text-sm text-blue-600">
         <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse-blue"></div>
@@ -226,7 +256,7 @@
             <div class="hidden md:block">
               <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z"/>
+                  <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
                 </svg>
               </div>
             </div>
@@ -236,28 +266,21 @@
         <!-- Form Content -->
         <form id="formulario" onsubmit="predecirPrecioDiamante(event)" class="p-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            
+
             <!-- Carat Input -->
             <div class="space-y-3">
               <label for="carat" class="block text-sm font-semibold text-blue-900 flex items-center">
                 <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"/>
+                    <path
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
                   </svg>
                 </div>
                 Quilates (Carat)
               </label>
-              <input 
-                type="number" 
-                id="carat" 
-                name="carat" 
-                step="0.01"
-                min="0.1"
-                max="10"
-                placeholder="Ejemplo: 1.25"
+              <input type="number" id="carat" name="carat" step="0.01" min="0.1" max="10" placeholder="Ejemplo: 1.25"
                 class="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-blue-900 placeholder-blue-400 input-focus"
-                required
-              >
+                required>
               <p class="text-xs text-blue-600 ml-2">Peso del diamante en quilates</p>
             </div>
 
@@ -266,22 +289,14 @@
               <label for="x" class="block text-sm font-semibold text-blue-900 flex items-center">
                 <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z"/>
+                    <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z" />
                   </svg>
                 </div>
                 Dimensión X (mm)
               </label>
-              <input 
-                type="number" 
-                id="x" 
-                name="x" 
-                step="0.01"
-                min="0"
-                max="20"
-                placeholder="Ejemplo: 6.43"
+              <input type="number" id="x" name="x" step="0.01" min="0" max="20" placeholder="Ejemplo: 6.43"
                 class="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-blue-900 placeholder-blue-400 input-focus"
-                required
-              >
+                required>
               <p class="text-xs text-blue-600 ml-2">Longitud del diamante en milímetros</p>
             </div>
 
@@ -290,22 +305,14 @@
               <label for="y" class="block text-sm font-semibold text-blue-900 flex items-center">
                 <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z"/>
+                    <path d="M3,3H21V5H3V3M3,7H15V9H3V7M3,11H21V13H3V11M3,15H15V17H3V15M3,19H21V21H3V19Z" />
                   </svg>
                 </div>
                 Dimensión Y (mm)
               </label>
-              <input 
-                type="number" 
-                id="y" 
-                name="y" 
-                step="0.01"
-                min="0"
-                max="20"
-                placeholder="Ejemplo: 6.41"
+              <input type="number" id="y" name="y" step="0.01" min="0" max="20" placeholder="Ejemplo: 6.41"
                 class="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-blue-900 placeholder-blue-400 input-focus"
-                required
-              >
+                required>
               <p class="text-xs text-blue-600 ml-2">Ancho del diamante en milímetros</p>
             </div>
 
@@ -314,26 +321,24 @@
               <label for="clarity" class="block text-sm font-semibold text-blue-900 flex items-center">
                 <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"/>
+                    <path
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z" />
                   </svg>
                 </div>
                 Claridad (Clarity)
               </label>
-              <select 
-                id="clarity" 
-                name="clarity" 
+              <select id="clarity" name="clarity"
                 class="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-blue-900 input-focus"
-                required
-              >
+                required>
                 <option value="">Seleccionar claridad</option>
-                <option value="1">I1 (Included 1)</option>
-                <option value="2">SI2 (Slightly Included 2)</option>
-                <option value="3">SI1 (Slightly Included 1)</option>
-                <option value="4">VS2 (Very Slightly Included 2)</option>
-                <option value="5">VS1 (Very Slightly Included 1)</option>
-                <option value="6">VVS2 (Very Very Slightly Included 2)</option>
-                <option value="7">VVS1 (Very Very Slightly Included 1)</option>
-                <option value="8">IF (Internally Flawless)</option>
+                <option value="I1">I1 (Included 1)</option>
+                <option value="SI2">SI2 (Slightly Included 2)</option>
+                <option value="SI1">SI1 (Slightly Included 1)</option>
+                <option value="VS2">VS2 (Very Slightly Included 2)</option>
+                <option value="VS1">VS1 (Very Slightly Included 1)</option>
+                <option value="VVS2">VVS2 (Very Very Slightly Included 2)</option>
+                <option value="VVS1">VVS1 (Very Very Slightly Included 1)</option>
+                <option value="IF">IF (Internally Flawless)</option>
               </select>
               <p class="text-xs text-blue-600 ml-2">Grado de claridad del diamante</p>
             </div>
@@ -343,25 +348,23 @@
               <label for="color" class="block text-sm font-semibold text-blue-900 flex items-center">
                 <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1H9V3H7V9H9V21A2,2 0 0,0 11,23H13A2,2 0 0,0 15,21V9H21Z"/>
+                    <path
+                      d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1H9V3H7V9H9V21A2,2 0 0,0 11,23H13A2,2 0 0,0 15,21V9H21Z" />
                   </svg>
                 </div>
                 Color
               </label>
-              <select 
-                id="color" 
-                name="color" 
+              <select id="color" name="color"
                 class="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-blue-900 input-focus"
-                required
-              >
+                required>
                 <option value="">Seleccionar color</option>
-                <option value="1">J (Near Colorless)</option>
-                <option value="2">I (Near Colorless)</option>
-                <option value="3">H (Near Colorless)</option>
-                <option value="4">G (Near Colorless)</option>
-                <option value="5">F (Colorless)</option>
-                <option value="6">E (Colorless)</option>
-                <option value="7">D (Colorless)</option>
+                <option value="J">J (Near Colorless)</option>
+                <option value="I">I (Near Colorless)</option>
+                <option value="H">H (Near Colorless)</option>
+                <option value="G">G (Near Colorless)</option>
+                <option value="F">F (Colorless)</option>
+                <option value="E">E (Colorless)</option>
+                <option value="D">D (Colorless)</option>
               </select>
               <p class="text-xs text-blue-600 ml-2">Grado de color del diamante</p>
             </div>
@@ -369,24 +372,18 @@
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-blue-200">
-            <button 
-              type="submit" 
-              id="submitBtn"
-              class="flex-1 diamond-gradient text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 flex items-center justify-center space-x-3"
-            >
+            <button type="submit" id="submitBtn"
+              class="flex-1 diamond-gradient text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 flex items-center justify-center space-x-3">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z"/>
+                <path d="M6,2L2,8L12,22L22,8L18,2H6M6.5,3H17.5L20.5,8L12,19L3.5,8L6.5,3Z" />
               </svg>
               <span>Valorar Diamante</span>
             </button>
-            
-            <button 
-              type="button" 
-              onclick="clearForm()"
-              class="sm:w-auto bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 flex items-center justify-center space-x-3"
-            >
+
+            <button type="button" onclick="clearForm()"
+              class="sm:w-auto bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 flex items-center justify-center space-x-3">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/>
+                <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
               </svg>
               <span>Limpiar</span>
             </button>
@@ -406,12 +403,14 @@
       <div id="resultado" class="mt-6"></div>
 
       <!-- Information Panel -->
-      <div class="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-blue-100 animate-fade-in" style="opacity: 0; transform: translateY(30px);">
+      <div class="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-blue-100 animate-fade-in"
+        style="opacity: 0; transform: translateY(30px);">
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0">
             <div class="w-10 h-10 diamond-gradient rounded-xl flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+                <path
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
               </svg>
             </div>
           </div>
@@ -426,7 +425,8 @@
               <div class="space-y-2">
                 <p><span class="font-semibold">Color:</span> Ausencia de color (D-Z scale)</p>
                 <div class="mt-3 p-3 bg-blue-50 rounded-lg">
-                  <p class="text-xs text-blue-600">💎 Certificación gemológica recomendada para diamantes de alto valor</p>
+                  <p class="text-xs text-blue-600">💎 Certificación gemológica recomendada para diamantes de alto valor
+                  </p>
                 </div>
               </div>
             </div>
@@ -436,4 +436,5 @@
     </div>
   </div>
 </body>
+
 </html>
