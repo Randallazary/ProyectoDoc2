@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.DEBUG)
 # Cargar los modelos entrenados
 try:
     # Cargar el modelo de red neuronal para diamantes
-    model = joblib.load('red_neuronal.pkl')
+    model = joblib.load('modelo_diamantes.pkl')
     app.logger.debug('Modelo de predicción de precios de diamantes cargado correctamente.')
     
     # Cargar el scaler
