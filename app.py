@@ -12,11 +12,11 @@ logging.basicConfig(level=logging.DEBUG)
 # Cargar los modelos entrenados
 try:
     # Cargar el modelo de red neuronal para diamantes
-    model = joblib.load('diamond_price_model.pkl')
+    model = joblib.load('modelo_diamantes.pkl')
     app.logger.debug('Modelo de predicción de precios de diamantes cargado correctamente.')
     
     # Cargar el scaler
-    scaler = joblib.load('diamond_scaler.pkl')
+    scaler = joblib.load('modelo_scaler.pkl')
     app.logger.debug('Scaler cargado correctamente.')
     
 except Exception as e:
