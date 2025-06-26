@@ -47,7 +47,7 @@ def predict():
             'carat', 'color', 'clarity', 'x', 'y', 
         ]
         
-        # Características que usamos para la predicción
+        # Características que usamos para la predicción 
         features = ['y', 'carat', 'x', 'clarity', 'color']
 
         # Crear diccionario con todos los datos (completar con valores promedio los que no tenemos)
